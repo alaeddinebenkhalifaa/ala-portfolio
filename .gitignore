@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.DS_Store
+*.local
+.claude/settings.local.json
+public/assets/certifications/Keep Talking and Nobody Explodes Build 11172020/
