@@ -147,7 +147,7 @@ export default function Header({ theme, onToggleTheme, playerOpen, onTogglePlaye
         <button
           className={`mob-theme-btn${menuOpen ? ' visible' : ''}`}
           style={{ transitionDelay: menuOpen ? '0.46s' : '0s' }}
-          onClick={onToggleTheme}
+          onClick={() => { onToggleTheme(); close() }}
         >
           {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
         </button>
