@@ -220,8 +220,8 @@ export default function Skills() {
       setTip(null)
     }
     const onTouchMove = (e) => {
-      e.preventDefault()
       if (!dragRef.current.active) return
+      e.preventDefault()
       const t = e.touches[0]
       const dx = t.clientX - dragRef.current.lastX
       const dy = t.clientY - dragRef.current.lastY
@@ -268,6 +268,17 @@ export default function Skills() {
     setTip({ name, x: iRect.left - wRect.left + iRect.width / 2, y: iRect.top - wRect.top - 10 })
   }
   const onIconLeave = () => { pauseRef.current = false; setTip(null) }
+
+  const onListHover = (i, name) => {
+    if (dragRef.current.active) return
+    const el = iconRefs.current[i]
+    const wrap = wrapRef.current
+    if (!el || !wrap) return
+    pauseRef.current = true
+    const wRect = wrap.getBoundingClientRect()
+    const iRect = el.getBoundingClientRect()
+    setTip({ name, x: iRect.left - wRect.left + iRect.width / 2, y: iRect.top - wRect.top - 10 })
+  }
 
   return (
     <section className="section" id="skills" aria-label="Skills">
@@ -343,8 +354,17 @@ export default function Skills() {
           </span>
         </div>
         <ul className="skill-list">
-          {(cat === 'All' ? skillsCloud : skillsCloud.filter(s => s.category === cat)).map((skill, i) => (
-            <li key={skill.name} className="skill-list-item" style={{ animationDelay: `${i * 0.04}s` }}>
+          {skillsCloud
+            .map((skill, i) => ({ skill, i }))
+            .filter(({ skill }) => cat === 'All' || skill.category === cat)
+            .map(({ skill, i }, idx) => (
+            <li
+              key={skill.name}
+              className="skill-list-item"
+              style={{ animationDelay: `${idx * 0.04}s` }}
+              onMouseEnter={() => onListHover(i, skill.name)}
+              onMouseLeave={onIconLeave}
+            >
               <img
                 className="skill-list-icon"
                 src={`https://cdn.simpleicons.org/${skill.slug}`}

@@ -152,6 +152,21 @@ export default function Header({ theme, onToggleTheme, playerOpen, onTogglePlaye
           {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
         </button>
       </div>
+
+      {/* ── Floating music button (mobile only) ── */}
+      <button
+        className={`mob-music-fab${playerOpen ? ' active' : ''}${musicPlaying ? ' playing' : ''}`}
+        onClick={onTogglePlayer}
+        aria-label="Toggle music player"
+      >
+        {musicPlaying ? (
+          <span className="hdr-wave" aria-hidden="true">
+            <span /><span /><span /><span />
+          </span>
+        ) : (
+          <Music2 size={18} />
+        )}
+      </button>
     </>
   )
 }
