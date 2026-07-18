@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
+import { motion } from 'motion/react'
 import {
   Play, Pause, SkipForward, SkipBack,
   Heart, Repeat, Shuffle, Volume2, VolumeX,
@@ -49,7 +50,6 @@ export default function MusicPlayer({ open, onClose, onPlayingChange }) {
   const audioRef    = useRef(null)
   const dragRef     = useRef({ active: false })
   const progressRef = useRef(null)
-  const windowRef   = useRef(null)
   // refs so audio event listeners always see current state
   const repeatRef   = useRef(repeat)
   const shuffleRef  = useRef(shuffle)
@@ -60,6 +60,11 @@ export default function MusicPlayer({ open, onClose, onPlayingChange }) {
   useEffect(() => { shuffleRef.current  = shuffle   }, [shuffle])
   useEffect(() => { trackIdxRef.current = trackIdx  }, [trackIdx])
   useEffect(() => { isPlayingRef.current = isPlaying }, [isPlaying])
+
+  // opening on a phone-sized viewport goes straight to fullscreen
+  useEffect(() => {
+    if (open && window.matchMedia('(max-width: 820px)').matches) setPlayerFs(true)
+  }, [open])
 
   const track = TRACKS[trackIdx]
 
@@ -221,17 +226,28 @@ export default function MusicPlayer({ open, onClose, onPlayingChange }) {
     dragRef.current = { active: true, sx: e.clientX, sy: e.clientY, ox: pos.x, oy: pos.y }
   }
 
-  if (!open) return null
+  const closedState = useMemo(() => (
+    playerFs ? { opacity: 0, y: 48 } : { opacity: 0, scale: 0.92, y: 16 }
+  ), [playerFs])
+  const openState = useMemo(() => (
+    playerFs ? { opacity: 1, y: 0 } : { opacity: 1, scale: 1, y: 0 }
+  ), [playerFs])
 
   const dur = duration || 0
   const pct = dur ? (currentTime / dur) * 100 : 0
   const cycleRepeat = () => setRepeat(r => r === 'off' ? 'all' : r === 'all' ? 'one' : 'off')
 
   return (
-    <div
+    <motion.div
       className={`mp-window${playerFs ? ' mp-window--fs' : ''}`}
-      style={playerFs ? undefined : { left: pos.x, top: pos.y }}
-      ref={windowRef}
+      style={{
+        ...(playerFs ? undefined : { left: pos.x, top: pos.y }),
+        pointerEvents: open ? 'auto' : 'none',
+      }}
+      aria-hidden={!open}
+      initial={false}
+      animate={open ? openState : closedState}
+      transition={{ duration: 0.32, ease: [0.16, 1, 0.3, 1] }}
     >
 
       {/* ── Title bar (drag handle) ── */}
@@ -359,6 +375,6 @@ export default function MusicPlayer({ open, onClose, onPlayingChange }) {
           ))}
         </div>
       )}
-    </div>
+    </motion.div>
   )
 }
