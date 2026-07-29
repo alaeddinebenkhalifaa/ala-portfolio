@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef, useMemo } from 'react'
 import { motion } from 'motion/react'
+import { useLanguage } from '../i18n/LanguageContext.jsx'
+import { connectMusicElement } from '../audio/audioEngine.js'
 import {
   Play, Pause, SkipForward, SkipBack,
   Heart, Repeat, Shuffle, Volume2, VolumeX,
@@ -25,6 +27,7 @@ function fmt(s) {
 }
 
 export default function MusicPlayer({ open, onClose, onPlayingChange }) {
+  const { t: translate } = useLanguage()
   const [pos, setPos] = useState(() => ({
     x: Math.max(20, window.innerWidth - 360),
     y: Math.max(20, window.innerHeight - 540),
@@ -73,6 +76,7 @@ export default function MusicPlayer({ open, onClose, onPlayingChange }) {
     const audio = new Audio()
     audioRef.current = audio
     audio.volume = volume
+    connectMusicElement(audio)
 
     const onTime = () => setCurrentTime(audio.currentTime)
     const onMeta = () => setDuration(audio.duration || 0)
@@ -253,15 +257,15 @@ export default function MusicPlayer({ open, onClose, onPlayingChange }) {
       {/* ── Title bar (drag handle) ── */}
       <div className="mp-titlebar" onMouseDown={playerFs ? undefined : onTitleDown}>
         <Music2 size={12} />
-        <span>Music Player</span>
+        <span>{translate('musicPlayer.title')}</span>
         <button
           className="mp-close"
           onClick={() => setPlayerFs(f => !f)}
-          aria-label={playerFs ? 'Exit fullscreen' : 'Fullscreen'}
+          aria-label={playerFs ? translate('musicPlayer.exitFullscreen') : translate('musicPlayer.fullscreen')}
         >
           {playerFs ? <Minimize2 size={12} /> : <Maximize2 size={12} />}
         </button>
-        <button className="mp-close" onClick={onClose} aria-label="Close player">
+        <button className="mp-close" onClick={onClose} aria-label={translate('musicPlayer.closePlayer')}>
           <X size={12} />
         </button>
       </div>
@@ -292,7 +296,7 @@ export default function MusicPlayer({ open, onClose, onPlayingChange }) {
         <button
           className={`mp-like${liked[track.id] ? ' active' : ''}`}
           onClick={() => setLiked(l => ({ ...l, [track.id]: !l[track.id] }))}
-          aria-label="Like"
+          aria-label={translate('musicPlayer.like')}
         >
           <Heart size={15} fill={liked[track.id] ? 'currentColor' : 'none'} />
         </button>
@@ -312,10 +316,10 @@ export default function MusicPlayer({ open, onClose, onPlayingChange }) {
 
       {/* ── Controls ── */}
       <div className="mp-controls">
-        <button className={`mp-btn${shuffle ? ' active' : ''}`} onClick={() => setShuffle(s => !s)} title="Shuffle">
+        <button className={`mp-btn${shuffle ? ' active' : ''}`} onClick={() => setShuffle(s => !s)} title={translate('musicPlayer.shuffle')}>
           <Shuffle size={14} />
         </button>
-        <button className="mp-btn" onClick={goPrev} title="Previous">
+        <button className="mp-btn" onClick={goPrev} title={translate('musicPlayer.previous')}>
           <SkipBack size={18} />
         </button>
         <button className="mp-btn mp-play" onClick={toggle}>
@@ -324,10 +328,14 @@ export default function MusicPlayer({ open, onClose, onPlayingChange }) {
             : <Play  size={18} fill="currentColor" style={{ marginLeft: 2 }} />
           }
         </button>
-        <button className="mp-btn" onClick={goNext} title="Next">
+        <button className="mp-btn" onClick={goNext} title={translate('musicPlayer.next')}>
           <SkipForward size={18} />
         </button>
-        <button className={`mp-btn mp-repeat${repeat !== 'off' ? ' active' : ''}`} onClick={cycleRepeat} title={`Repeat: ${repeat}`}>
+        <button
+          className={`mp-btn mp-repeat${repeat !== 'off' ? ' active' : ''}`}
+          onClick={cycleRepeat}
+          title={`${translate('musicPlayer.repeat')}: ${translate(`musicPlayer.repeatLabels.${repeat}`)}`}
+        >
           <Repeat size={14} />
           {repeat === 'one' && <span className="mp-repeat-badge">1</span>}
         </button>
@@ -343,7 +351,7 @@ export default function MusicPlayer({ open, onClose, onPlayingChange }) {
           type="range" min={0} max={1} step={0.01}
           value={muted ? 0 : volume}
           onChange={e => { setVolume(+e.target.value); setMuted(false) }}
-          aria-label="Volume"
+          aria-label={translate('musicPlayer.volume')}
         />
         <span className="mp-vol-pct">{Math.round((muted ? 0 : volume) * 100)}%</span>
       </div>
@@ -351,7 +359,7 @@ export default function MusicPlayer({ open, onClose, onPlayingChange }) {
       {/* ── Queue toggle ── */}
       <button className="mp-queue-toggle" onClick={() => setShowQueue(q => !q)}>
         <List size={12} />
-        <span>Queue ({TRACKS.length})</span>
+        <span>{translate('musicPlayer.queue')} ({TRACKS.length})</span>
       </button>
 
       {/* ── Queue ── */}

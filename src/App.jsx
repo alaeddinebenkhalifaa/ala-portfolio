@@ -1,5 +1,6 @@
 import { useState }      from 'react'
 import { useTheme }      from './hooks/useTheme.js'
+import { LanguageProvider } from './i18n/LanguageContext.jsx'
 import PageBackground   from './components/PageBackground.jsx'
 import Cursor           from './components/Cursor.jsx'
 import Header           from './components/Header.jsx'
@@ -15,15 +16,17 @@ import Footer           from './components/Footer.jsx'
 import ScrollToTop      from './components/ScrollToTop.jsx'
 import MusicPlayer     from './components/MusicPlayer.jsx'
 import WelcomeCard     from './components/WelcomeCard.jsx'
+import Loader           from './components/Loader.jsx'
 
 export default function App() {
   const { theme, toggle } = useTheme()
   const [playerOpen, setPlayerOpen] = useState(false)
   const [musicPlaying, setMusicPlaying] = useState(false)
   const [welcomed, setWelcomed] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   return (
-    <>
+    <LanguageProvider>
       <PageBackground theme={theme} interactive />
       <div id="grain" aria-hidden="true" />
       <Cursor />
@@ -47,7 +50,8 @@ export default function App() {
       <Footer />
       <ScrollToTop />
       <MusicPlayer open={playerOpen} onClose={() => setPlayerOpen(false)} onPlayingChange={setMusicPlaying} />
-      {!welcomed && <WelcomeCard onDismiss={() => setWelcomed(true)} />}
-    </>
+      {!welcomed && <WelcomeCard revealed={!loading} onDismiss={() => setWelcomed(true)} />}
+      {loading && <Loader onDone={() => setLoading(false)} />}
+    </LanguageProvider>
   )
 }

@@ -2,6 +2,7 @@ import { motion } from 'motion/react'
 import { useState } from 'react'
 import { events } from '../data/content.js'
 import { useReveal } from '../hooks/useReveal.js'
+import { useLanguage } from '../i18n/LanguageContext.jsx'
 import {
   CutoutCard,
   CutoutCardMedia,
@@ -15,7 +16,7 @@ import {
 } from './ui/CutoutCard.jsx'
 import ExperienceModal from './ExperienceModal.jsx'
 
-function ExperienceCard({ ev, index, onOpen }) {
+function ExperienceCard({ ev, index, onOpen, categoryLabel }) {
   const ref = useReveal()
   const stagger = useCutoutContentStaggerVariants()
   const isWide = index === 0
@@ -35,7 +36,7 @@ function ExperienceCard({ ev, index, onOpen }) {
           {/* Inset label — bottom-left chip */}
           <CutoutCardInsetLabel className="cc2-label">
             <span className="cc2-label-year">{ev.year}</span>
-            <span className="cc2-label-cat">{ev.category}</span>
+            <span className="cc2-label-cat">{categoryLabel}</span>
           </CutoutCardInsetLabel>
 
           {/* Pin — top-right dot */}
@@ -59,7 +60,7 @@ function ExperienceCard({ ev, index, onOpen }) {
 
         {/* ── Hover action ── */}
         <CutoutCardAction className="cc2-action-wrap">
-          <span className="cc2-action-pill">{ev.category} ↗</span>
+          <span className="cc2-action-pill">{categoryLabel} ↗</span>
         </CutoutCardAction>
 
       </CutoutCard>
@@ -68,18 +69,26 @@ function ExperienceCard({ ev, index, onOpen }) {
 }
 
 export default function Content() {
+  const { lang, t } = useLanguage()
   const labelRef = useReveal()
   const [active, setActive] = useState(null)
+  const localizedEvents = events.map(ev => ({ ...ev, ...ev[lang] }))
 
   return (
-    <section className="section" id="experience" style={{ paddingTop: 0 }} aria-label="Experience">
-      <span className="s-label rv" ref={labelRef}>Experience</span>
+    <section className="section" id="achievements" style={{ paddingTop: 0 }} aria-label={t('sections.achievements')}>
+      <span className="s-label rv" ref={labelRef}>{t('sections.achievements')}</span>
       <div className="cc2-grid">
-        {events.map((ev, i) => (
-          <ExperienceCard key={ev.id} ev={ev} index={i} onOpen={setActive} />
+        {localizedEvents.map((ev, i) => (
+          <ExperienceCard
+            key={ev.id}
+            ev={ev}
+            index={i}
+            onOpen={setActive}
+            categoryLabel={t(`eventCat.${ev.category}`)}
+          />
         ))}
       </div>
-      <ExperienceModal ev={active} onClose={() => setActive(null)} />
+      <ExperienceModal ev={active} categoryLabel={active ? t(`eventCat.${active.category}`) : null} onClose={() => setActive(null)} />
     </section>
   )
 }

@@ -4,67 +4,118 @@ export const work = [
     id: 'w01',
     num: '01',
     company: 'IDA Conseil',
-    role: 'AI Engineer — PFE',
     period: '2025 – Present',
-    location: 'Canada (Remote)',
-    bullets: [
-      'Sole engineer on the AI microservice for IMMObox — Tunisia\'s first intelligent real estate pricing platform, covering 24 governorats and 7 property types.',
-      'Designed a deterministic price scoring algorithm using Q1/Q3 quartile analysis on comparable properties, classifying listings as Undervalued / Fair / Overvalued with bilingual FR/AR explanations.',
-      'Built a complete REST API: POST /estimate, POST /comparables/search, GET /market/{gov}, plus a recommendation engine (/similar, /for-you, /trending).',
-      'Configured Azure Pipelines CI/CD across three environments (develop / UAT / production) using GitFlow branching.',
-    ],
     tags: ['Python FastAPI', 'Azure SQL', 'Azure Pipelines', '.NET 8', 'Angular 18', 'GitFlow'],
+    en: {
+      role: 'AI Engineer — PFE',
+      location: 'Canada (Remote)',
+      bullets: [
+        'Sole engineer on the AI microservice for IMMObox — Tunisia\'s first intelligent real estate pricing platform, covering 24 governorats and 7 property types.',
+        'Designed a deterministic price scoring algorithm using Q1/Q3 quartile analysis on comparable properties, classifying listings as Undervalued / Fair / Overvalued with bilingual FR/AR explanations.',
+        'Built a complete REST API: POST /estimate, POST /comparables/search, GET /market/{gov}, plus a recommendation engine (/similar, /for-you, /trending).',
+        'Configured Azure Pipelines CI/CD across three environments (develop / UAT / production) using GitFlow branching.',
+      ],
+    },
+    fr: {
+      role: 'Ingénieur IA — PFE',
+      location: 'Canada (À distance)',
+      bullets: [
+        "Seul ingénieur sur le microservice IA d'IMMObox — la première plateforme intelligente d'estimation immobilière de Tunisie, couvrant 24 gouvernorats et 7 types de biens.",
+        "Conception d'un algorithme déterministe de scoring de prix basé sur une analyse des quartiles Q1/Q3 des biens comparables, classant les annonces en Sous-évalué / Juste / Surévalué avec des explications bilingues FR/AR.",
+        "Développement d'une API REST complète : POST /estimate, POST /comparables/search, GET /market/{gov}, ainsi qu'un moteur de recommandation (/similar, /for-you, /trending).",
+        'Configuration d\'un pipeline CI/CD Azure Pipelines sur trois environnements (develop / UAT / production) selon le modèle GitFlow.',
+      ],
+    },
   },
   {
     id: 'w02',
     num: '02',
     company: 'Bakchich',
-    role: 'DevOps Intern',
     period: 'Aug – Oct 2025',
-    location: 'Tunis, Tunisia',
-    bullets: [
-      'Architected a multi-VM Kubernetes platform (k3s) centralising Argo CD, HashiCorp Vault, and SigNoz; isolated application workloads on a dedicated cluster.',
-      'Implemented GitOps with Argo CD + Helm to fully automate DEV/QA/PROD deployments; hardened secrets with Vault + External Secrets Operator and wired observability via SigNoz + OpenTelemetry.',
-    ],
     tags: ['Kubernetes', 'k3s', 'Argo CD', 'Helm', 'HashiCorp Vault', 'SigNoz', 'OpenTelemetry'],
+    en: {
+      role: 'DevOps Intern',
+      location: 'Tunis, Tunisia',
+      bullets: [
+        'Architected a multi-VM Kubernetes platform (k3s) centralising Argo CD, HashiCorp Vault, and SigNoz; isolated application workloads on a dedicated cluster.',
+        'Implemented GitOps with Argo CD + Helm to fully automate DEV/QA/PROD deployments; hardened secrets with Vault + External Secrets Operator and wired observability via SigNoz + OpenTelemetry.',
+      ],
+    },
+    fr: {
+      role: 'Stagiaire DevOps',
+      location: 'Tunis, Tunisie',
+      bullets: [
+        'Conception d\'une plateforme Kubernetes multi-VM (k3s) centralisant Argo CD, HashiCorp Vault et SigNoz ; isolation des charges applicatives sur un cluster dédié.',
+        "Mise en place du GitOps avec Argo CD + Helm pour automatiser entièrement les déploiements DEV/QA/PROD ; renforcement de la gestion des secrets avec Vault + External Secrets Operator et mise en place de l'observabilité via SigNoz + OpenTelemetry.",
+      ],
+    },
   },
   {
     id: 'w03',
     num: '03',
     company: 'Wegast',
-    role: 'Full-Stack Freelance',
     period: 'Feb – Sep 2025',
-    location: 'Tunis, Tunisia',
-    bullets: [
-      'Sole engineer — designed, built, and shipped a full-stack food delivery app (React Native + MongoDB) end-to-end, from Figma prototypes to production on AWS with load balancing.',
-      'Engineered a gamification system to incentivise repeat orders and drive user retention.',
-    ],
     tags: ['React Native', 'MongoDB', 'Node.js', 'AWS', 'Figma'],
+    en: {
+      role: 'Full-Stack Freelance',
+      location: 'Tunis, Tunisia',
+      bullets: [
+        'Sole engineer — designed, built, and shipped a full-stack food delivery app (React Native + MongoDB) end-to-end, from Figma prototypes to production on AWS with load balancing.',
+        'Engineered a gamification system to incentivise repeat orders and drive user retention.',
+      ],
+    },
+    fr: {
+      role: 'Freelance Full-Stack',
+      location: 'Tunis, Tunisie',
+      bullets: [
+        "Seul ingénieur — conception, développement et mise en production d'une application de livraison de repas full-stack (React Native + MongoDB) de bout en bout, des prototypes Figma jusqu'à la production sur AWS avec répartition de charge.",
+        'Conception d\'un système de gamification pour encourager les commandes répétées et renforcer la fidélisation des utilisateurs.',
+      ],
+    },
   },
   {
     id: 'w04',
     num: '04',
     company: 'VERMEG',
-    role: 'AI Enhancement Intern',
     period: 'Jul – Sep 2024',
-    location: 'Tunis, Tunisia',
-    bullets: [
-      'Within a 3-engineer team, built NLP features (sentiment analysis, TF-IDF search, fuzzy string matching) improving query relevance and automating support triage inside the ISAC platform.',
-      'Trained a feedback analysis model to surface actionable product improvement signals from user submissions.',
-    ],
     tags: ['Python', 'NLP', 'Sentiment Analysis', 'TF-IDF', 'Fuzzy Matching'],
+    en: {
+      role: 'AI Enhancement Intern',
+      location: 'Tunis, Tunisia',
+      bullets: [
+        'Within a 3-engineer team, built NLP features (sentiment analysis, TF-IDF search, fuzzy string matching) improving query relevance and automating support triage inside the ISAC platform.',
+        'Trained a feedback analysis model to surface actionable product improvement signals from user submissions.',
+      ],
+    },
+    fr: {
+      role: 'Stagiaire Amélioration IA',
+      location: 'Tunis, Tunisie',
+      bullets: [
+        "Au sein d'une équipe de 3 ingénieurs, développement de fonctionnalités NLP (analyse de sentiment, recherche TF-IDF, correspondance floue) améliorant la pertinence des requêtes et automatisant le tri des tickets de support dans la plateforme ISAC.",
+        "Entraînement d'un modèle d'analyse des retours utilisateurs pour faire émerger des signaux exploitables d'amélioration produit.",
+      ],
+    },
   },
   {
     id: 'w05',
     num: '05',
     company: 'BibaDridi',
-    role: 'Full-Stack Freelance',
     period: 'Feb – Aug 2023',
-    location: 'Tunis, Tunisia',
-    bullets: [
-      'Delivered a full-stack web and mobile solution (React Native, React.js, Node.js, MongoDB) including multi-language support and data privacy controls; deployed on OVH Cloud.',
-    ],
     tags: ['React Native', 'React.js', 'Node.js', 'MongoDB', 'OVH Cloud'],
+    en: {
+      role: 'Full-Stack Freelance',
+      location: 'Tunis, Tunisia',
+      bullets: [
+        'Delivered a full-stack web and mobile solution (React Native, React.js, Node.js, MongoDB) including multi-language support and data privacy controls; deployed on OVH Cloud.',
+      ],
+    },
+    fr: {
+      role: 'Freelance Full-Stack',
+      location: 'Tunis, Tunisie',
+      bullets: [
+        "Livraison d'une solution web et mobile full-stack (React Native, React.js, Node.js, MongoDB) incluant le support multilingue et des contrôles de confidentialité des données ; déployée sur OVH Cloud.",
+      ],
+    },
   },
 ]
 
@@ -77,8 +128,9 @@ export const projects = [
     stack: 'Python FastAPI · Azure SQL · Q1/Q3 Price Scoring',
     year: '2025',
     image: '/assets/img/portfolio/event/hult%20prize%20global%20accelerator/1.jpg',
-    desc: 'Tunisia\'s first intelligent real estate pricing platform. Deterministic Q1/Q3 quartile scoring across 24 governorats and 7 property types — bilingual FR/AR explanations, REST API, deployed on Azure.',
     link: null,
+    en: { desc: 'Tunisia\'s first intelligent real estate pricing platform. Deterministic Q1/Q3 quartile scoring across 24 governorats and 7 property types — bilingual FR/AR explanations, REST API, deployed on Azure.' },
+    fr: { desc: "La première plateforme intelligente d'estimation immobilière de Tunisie. Scoring déterministe par quartiles Q1/Q3 sur 24 gouvernorats et 7 types de biens — explications bilingues FR/AR, API REST, déployée sur Azure." },
   },
   {
     id: 'p02',
@@ -87,8 +139,9 @@ export const projects = [
     stack: 'Angular · Spring Boot · Docker · OpenStack · Ansible · Kubernetes',
     year: '2024 – 2025',
     image: null,
-    desc: 'Microservices freelancing platform. Provisioned full OpenStack infrastructure with load balancing, automated with Ansible; orchestrated deployments with Kubernetes.',
     link: null,
+    en: { desc: 'Microservices freelancing platform. Provisioned full OpenStack infrastructure with load balancing, automated with Ansible; orchestrated deployments with Kubernetes.' },
+    fr: { desc: 'Plateforme de freelancing en microservices. Infrastructure OpenStack complète avec répartition de charge, automatisée avec Ansible ; déploiements orchestrés avec Kubernetes.' },
   },
   {
     id: 'p03',
@@ -97,8 +150,9 @@ export const projects = [
     stack: 'Symfony · JavaFX · AI Content Moderation',
     year: '2023 – 2024',
     image: null,
-    desc: 'Web and desktop app for educational content management with AI image moderation to auto-detect adult content.',
     link: null,
+    en: { desc: 'Web and desktop app for educational content management with AI image moderation to auto-detect adult content.' },
+    fr: { desc: "Application web et desktop de gestion de contenu éducatif avec modération d'images par IA pour détecter automatiquement les contenus inappropriés." },
   },
   {
     id: 'p04',
@@ -107,8 +161,9 @@ export const projects = [
     stack: 'Qt C++ · Desktop Application',
     year: '2022',
     image: '/assets/img/portfolio/project/E-Justice/1.png',
-    desc: 'Groundbreaking court organisation and efficiency platform. Automated judicial processes, streamlined case management, intuitive UI for legal professionals.',
     link: 'https://github.com/HediLengliz/Smart_Court_2A25',
+    en: { desc: 'Groundbreaking court organisation and efficiency platform. Automated judicial processes, streamlined case management, intuitive UI for legal professionals.' },
+    fr: { desc: "Plateforme innovante d'organisation et d'efficacité judiciaire. Automatisation des processus judiciaires, gestion simplifiée des dossiers, interface intuitive pour les professionnels du droit." },
   },
   {
     id: 'p05',
@@ -117,8 +172,9 @@ export const projects = [
     stack: 'HTML · CSS · JavaScript · PHP',
     year: '2023',
     image: '/assets/img/portfolio/project/cultrify/1.png',
-    desc: 'Dynamic web-based event reservation and organisation platform. Users discover, reserve, and coordinate events with seamless host–attendee communication.',
     link: 'https://github.com/AlaBenKhalifa/web',
+    en: { desc: 'Dynamic web-based event reservation and organisation platform. Users discover, reserve, and coordinate events with seamless host–attendee communication.' },
+    fr: { desc: 'Plateforme web dynamique de réservation et d\'organisation d\'événements. Les utilisateurs découvrent, réservent et coordonnent des événements avec une communication fluide entre organisateurs et participants.' },
   },
   {
     id: 'p06',
@@ -127,8 +183,9 @@ export const projects = [
     stack: 'C · SDL · 2D Video Game',
     year: '2022',
     image: '/assets/img/portfolio/project/The%20Time%20Jumper/1.png',
-    desc: '2D video game centred around Tunisian culture and the concept of time travel, with a compelling plot twist. Designed the game mechanics and a full marketing strategy.',
     link: 'https://github.com/ismailbokri/superbia',
+    en: { desc: '2D video game centred around Tunisian culture and the concept of time travel, with a compelling plot twist. Designed the game mechanics and a full marketing strategy.' },
+    fr: { desc: 'Jeu vidéo 2D centré sur la culture tunisienne et le concept de voyage dans le temps, avec un retournement de situation captivant. Conception des mécaniques de jeu et d\'une stratégie marketing complète.' },
   },
   {
     id: 'p07',
@@ -137,8 +194,9 @@ export const projects = [
     stack: 'Machine Learning · Desktop Application',
     year: '2022',
     image: '/assets/img/portfolio/event/upside%20education/1.jpg',
-    desc: 'Hackathon winner (Upside Education). Desktop app using ML to allocate students into teams based on personality types — built in 48 hours.',
     link: 'https://github.com/Haythem-Jaidane/TeamUp',
+    en: { desc: 'Hackathon winner (Upside Education). Desktop app using ML to allocate students into teams based on personality types — built in 48 hours.' },
+    fr: { desc: 'Gagnant du hackathon (Upside Education). Application desktop utilisant le machine learning pour répartir les étudiants en équipes selon leur type de personnalité — développée en 48 heures.' },
   },
 ]
 
@@ -146,8 +204,6 @@ export const projects = [
 export const events = [
   {
     id: 'e01',
-    title: 'Hult Prize Global Accelerator',
-    subtitle: 'Top 16 of 15,000+ teams worldwide · Boston, USA',
     year: '2022 – 2023',
     category: 'Competition',
     image: '/assets/img/portfolio/event/hult%20prize%20global%20accelerator/1.jpg',
@@ -155,13 +211,24 @@ export const events = [
       '/assets/img/portfolio/event/hult%20prize%20global%20accelerator/1.jpg',
       '/assets/img/portfolio/event/hult%20prize%20global%20accelerator/2.jpg',
       '/assets/img/portfolio/event/hult%20prize%20global%20accelerator/3.jpg',
+      '/assets/img/portfolio/event/hult%20prize%20global%20accelerator/4.jpg',
+      '/assets/img/portfolio/event/hult%20prize%20global%20accelerator/5.PNG',
     ],
-    desc: 'Out of 15,000+ teams, our project "Yopex" — a platform to empower students and startups — was selected for the Global Accelerator in Boston. Engaged with top investors and industry experts.',
+    link: 'https://www.hultprize.org/winner-stories/2022/yopex/',
+    linkLabel: 'Hult Prize',
+    en: {
+      title: 'Hult Prize Global Accelerator',
+      subtitle: 'Top 16 of 15,000+ teams worldwide · Boston, USA',
+      desc: 'Out of 15,000+ teams, our project "Yopex" — a platform to empower students and startups — was selected for the Global Accelerator in Boston. Engaged with top investors and industry experts.',
+    },
+    fr: {
+      title: 'Hult Prize Global Accelerator',
+      subtitle: 'Top 16 sur plus de 15 000 équipes dans le monde · Boston, États-Unis',
+      desc: 'Parmi plus de 15 000 équipes, notre projet « Yopex » — une plateforme pour accompagner étudiants et startups — a été sélectionné pour le Global Accelerator à Boston. Échanges avec des investisseurs de premier plan et des experts du secteur.',
+    },
   },
   {
     id: 'e02',
-    title: 'Harvard Africa Business Conference',
-    subtitle: 'VIP Invitation · Harvard Business School',
     year: 'Apr 2023',
     category: 'Conference',
     image: '/assets/img/portfolio/event/harvard/1.jpg',
@@ -169,22 +236,38 @@ export const events = [
       '/assets/img/portfolio/event/harvard/1.jpg',
       '/assets/img/portfolio/event/harvard/3.jpg',
     ],
-    desc: 'Invited as a VIP to present the "Watchaboo" education project at the Africa Business Conference at Harvard Business School.',
+    en: {
+      title: 'Harvard Africa Business Conference',
+      subtitle: 'VIP Invitation · Harvard Business School',
+      desc: 'Invited as a VIP to present the "Watchaboo" education project at the Africa Business Conference at Harvard Business School.',
+    },
+    fr: {
+      title: 'Harvard Africa Business Conference',
+      subtitle: 'Invitation VIP · Harvard Business School',
+      desc: 'Invité en tant qu\'invité VIP pour présenter le projet éducatif « Watchaboo » à l\'Africa Business Conference de la Harvard Business School.',
+    },
   },
   {
     id: 'e03',
-    title: 'WIB Hackathon — 1st Place',
-    subtitle: 'Accessibility web app with gamification layer',
     year: 'Mar 2024',
     category: 'Hackathon',
-    image: null,
-    images: [],
-    desc: 'Led a team to first place — built an accessibility web app with a gamification layer to encourage inclusive digital experiences.',
+    image: '/assets/img/portfolio/event/WIB/1.jpg',
+    images: [
+      '/assets/img/portfolio/event/WIB/1.jpg',
+    ],
+    en: {
+      title: 'WIB Hackathon — 1st Place',
+      subtitle: 'Accessibility web app with gamification layer',
+      desc: 'Led a team to first place — built an accessibility web app with a gamification layer to encourage inclusive digital experiences.',
+    },
+    fr: {
+      title: 'WIB Hackathon — 1re place',
+      subtitle: "Application web d'accessibilité avec une couche de gamification",
+      desc: "A mené une équipe à la première place — développement d'une application web d'accessibilité avec une couche de gamification pour encourager des expériences numériques inclusives.",
+    },
   },
   {
     id: 'e04',
-    title: 'Hult Prize OnCampus',
-    subtitle: 'Experts & Judges Coordinator · ESPRIT',
     year: 'Sep 2022 – Mar 2023',
     category: 'Organisation',
     image: '/assets/img/portfolio/event/HP%20OC/1.jpg',
@@ -192,38 +275,65 @@ export const events = [
       '/assets/img/portfolio/event/HP%20OC/1.jpg',
       '/assets/img/portfolio/event/HP%20OC/2.jpg',
     ],
-    desc: 'Served as Experts and Judges Coordinator for the OnCampus programme — extended invitations, managed logistics, and ensured a seamless experience for all evaluators.',
+    en: {
+      title: 'Hult Prize OnCampus',
+      subtitle: 'Experts & Judges Coordinator · ESPRIT',
+      desc: 'Served as Experts and Judges Coordinator for the OnCampus programme — extended invitations, managed logistics, and ensured a seamless experience for all evaluators.',
+    },
+    fr: {
+      title: 'Hult Prize OnCampus',
+      subtitle: 'Coordinateur Experts & Jury · ESPRIT',
+      desc: "A occupé le poste de Coordinateur Experts et Jury pour le programme OnCampus — envoi des invitations, gestion de la logistique et garantie d'une expérience fluide pour tous les évaluateurs.",
+    },
   },
   {
     id: 'e05',
-    title: 'APP0 Esprit — Organising Committee',
-    subtitle: 'Freshmen Welcome Event · ESPRIT University',
     year: 'Sep 2022',
     category: 'Organisation',
     image: '/assets/img/portfolio/event/OC%20APP0%20Esprit/1.png',
     images: [
       '/assets/img/portfolio/event/OC%20APP0%20Esprit/1.png',
       '/assets/img/portfolio/event/OC%20APP0%20Esprit/2.png',
+      '/assets/img/portfolio/event/OC%20APP0%20Esprit/3.png',
     ],
-    desc: 'Organised the annual APP0 event welcoming incoming freshmen — coordinated team assignments, logistics, and prototype sessions.',
+    link: 'https://www.facebook.com/esprit.tn/posts/pfbid02yBghvR4BZ3SsSpwaB5NeN2T9Eun8ob97CCkrmrn6PjJ3h4fMjqXDKPf7oS692g3Vl',
+    linkLabel: 'Facebook',
+    en: {
+      title: 'APP0 Esprit — Organising Committee',
+      subtitle: 'Freshmen Welcome Event · ESPRIT University',
+      desc: 'Organised the annual APP0 event welcoming incoming freshmen — coordinated team assignments, logistics, and prototype sessions.',
+    },
+    fr: {
+      title: "APP0 Esprit — Comité d'organisation",
+      subtitle: "Événement d'accueil des nouveaux étudiants · Université ESPRIT",
+      desc: "Organisation de l'événement annuel APP0 d'accueil des nouveaux étudiants — coordination de la répartition des équipes, de la logistique et des sessions de prototypage.",
+    },
   },
   {
     id: 'e06',
-    title: 'NMTC',
-    subtitle: 'National Microsoft Technology Bootcamp',
     year: 'Mar 2021',
     category: 'Bootcamp',
     image: '/assets/img/portfolio/event/NMTC/1.png',
     images: [
       '/assets/img/portfolio/event/NMTC/1.png',
       '/assets/img/portfolio/event/NMTC/2.png',
+      '/assets/img/portfolio/event/NMTC/3.png',
     ],
-    desc: 'Participated in the National Microsoft Technology Bootcamp — seminars on Web 4.0, Big Data, Cloud, and Blockchain, plus a hackathon.',
+    link: 'https://www.facebook.com/NMTC.TUNISIA/posts/pfbid0rjeE9yGT11cGrX6bJXokq4stesR5S8Gpb6Gfagao23JzMn8nxK3niJAjDzAmcm8gl',
+    linkLabel: 'Facebook',
+    en: {
+      title: 'NMTC',
+      subtitle: 'National Microsoft Technology Bootcamp',
+      desc: 'Participated in the National Microsoft Technology Bootcamp — seminars on Web 4.0, Big Data, Cloud, and Blockchain, plus a hackathon.',
+    },
+    fr: {
+      title: 'NMTC',
+      subtitle: 'Bootcamp national des technologies Microsoft',
+      desc: 'Participation au Bootcamp national des technologies Microsoft — séminaires sur le Web 4.0, le Big Data, le Cloud et la Blockchain, ainsi qu\'un hackathon.',
+    },
   },
   {
     id: 'e07',
-    title: 'Theatre Workshop',
-    subtitle: 'Co-Founder · NaQcha Theatre Club',
     year: 'Nov 2021',
     category: 'Leadership',
     image: '/assets/img/portfolio/event/Theatre%20Workshop/1.png',
@@ -231,12 +341,21 @@ export const events = [
       '/assets/img/portfolio/event/Theatre%20Workshop/1.png',
       '/assets/img/portfolio/event/Theatre%20Workshop/2.png',
     ],
-    desc: 'As co-founder of NaQcha Theatre Club, organised a successful workshop on theatre arts — handled logistics, speaker selection, and facilitated engaging discussions.',
+    link: 'https://www.facebook.com/Na9chaTN/posts/pfbid0KpXNVn7T8vwvcTrANgGKgCHv1NxD6G4QXgDC3LauGKLEuX9FNvTCwR8CbUiidW8cl',
+    linkLabel: 'Facebook',
+    en: {
+      title: 'Theatre Workshop',
+      subtitle: 'Co-Founder · NaQcha Theatre Club',
+      desc: 'As co-founder of NaQcha Theatre Club, organised a successful workshop on theatre arts — handled logistics, speaker selection, and facilitated engaging discussions.',
+    },
+    fr: {
+      title: 'Atelier de théâtre',
+      subtitle: 'Co-fondateur · Club de théâtre NaQcha',
+      desc: 'En tant que co-fondateur du club de théâtre NaQcha, organisation d\'un atelier réussi sur les arts théâtraux — gestion de la logistique, sélection des intervenants et animation de discussions enrichissantes.',
+    },
   },
   {
     id: 'e08',
-    title: 'Radio Shows',
-    subtitle: 'Guest Speaker · 2 National Appearances',
     year: 'Jun 2023',
     category: 'Media',
     image: '/assets/img/portfolio/event/radio-shows/1.png',
@@ -244,48 +363,260 @@ export const events = [
       '/assets/img/portfolio/event/radio-shows/1.png',
       '/assets/img/portfolio/event/radio-shows/2.png',
     ],
-    desc: 'Featured as a guest on two national radio shows — discussed academic excellence strategies in one, and co-presented the "Watchaboo" project in the other.',
+    link: 'https://www.facebook.com/permalink.php?story_fbid=pfbid02dcEFCyzgpK9RC2TodvM3CMhDz61rsLhF4HWZRM19foFzu2ywnYgJ5Pa6sNPAuyLxl&id=100009407850464',
+    linkLabel: 'Facebook',
+    en: {
+      title: 'Radio Shows',
+      subtitle: 'Guest Speaker · 2 National Appearances',
+      desc: 'Featured as a guest on two national radio shows — discussed academic excellence strategies in one, and co-presented the "Watchaboo" project in the other.',
+    },
+    fr: {
+      title: 'Émissions de radio',
+      subtitle: 'Invité · 2 passages nationaux',
+      desc: 'Invité sur deux émissions de radio nationales — discussion sur les stratégies de réussite académique dans l\'une, et co-présentation du projet « Watchaboo » dans l\'autre.',
+    },
   },
   {
     id: 'e09',
-    title: 'IEEE CS Chapter ESPRIT',
-    subtitle: 'General Secretary · Executive Committee Member',
     year: '2021 – 2024',
     category: 'Leadership',
-    image: '/assets/img/portfolio/club/ieee/1.jpg',
+    image: '/assets/img/portfolio/club/ieee/2.png',
     images: [
+      '/assets/img/portfolio/club/ieee/2.png',
       '/assets/img/portfolio/club/ieee/1.jpg',
     ],
-    desc: 'Served as General Secretary — coordinated activities, events, and initiatives; facilitated collaborations with faculty, industry professionals, and students. Led workshops on React.js, React Native, Python, Bootstrap, and pitched a Deepfake Detection algorithm at the TSYP IEEE CS Challenge.',
+    en: {
+      title: 'IEEE CS Chapter ESPRIT',
+      subtitle: 'General Secretary · Executive Committee Member',
+      desc: 'Served as General Secretary — coordinated activities, events, and initiatives; facilitated collaborations with faculty, industry professionals, and students. Led workshops on React.js, React Native, Python, Bootstrap, and pitched a Deepfake Detection algorithm at the TSYP IEEE CS Challenge.',
+    },
+    fr: {
+      title: 'IEEE CS Chapter ESPRIT',
+      subtitle: 'Secrétaire général · Membre du comité exécutif',
+      desc: "A occupé le poste de Secrétaire général — coordination des activités, événements et initiatives ; facilitation des collaborations avec le corps enseignant, les professionnels du secteur et les étudiants. Animation d'ateliers sur React.js, React Native, Python, Bootstrap, et présentation d'un algorithme de détection de deepfake au TSYP IEEE CS Challenge.",
+    },
   },
   {
     id: 'e10',
-    title: 'Upside Education Hackathon',
-    subtitle: '"TeamUp" — ML-powered team allocation app',
     year: 'Oct 2022',
     category: 'Hackathon',
     image: '/assets/img/portfolio/event/upside%20education/1.jpg',
     images: [
       '/assets/img/portfolio/event/upside%20education/1.jpg',
       '/assets/img/portfolio/event/upside%20education/2.jpg',
+      '/assets/img/portfolio/event/upside%20education/3.jpg',
     ],
-    desc: 'Built "TeamUp" in 48 hours — a desktop application using ML to allocate students into teams based on their personality types.',
+    link: 'https://github.com/Haythem-Jaidane/TeamUp',
+    linkLabel: 'GitHub',
+    en: {
+      title: 'Upside Education Hackathon',
+      subtitle: '"TeamUp" — ML-powered team allocation app',
+      desc: 'Built "TeamUp" in 48 hours — a desktop application using ML to allocate students into teams based on their personality types.',
+    },
+    fr: {
+      title: 'Upside Education Hackathon',
+      subtitle: '« TeamUp » — application de répartition d\'équipes par machine learning',
+      desc: 'Développement de « TeamUp » en 48 heures — une application desktop utilisant le machine learning pour répartir les étudiants en équipes selon leur type de personnalité.',
+    },
+  },
+  {
+    id: 'e11',
+    year: '2024 – 2025',
+    category: 'Academic',
+    image: '/assets/img/portfolio/project/Unihelp/1.png',
+    images: [
+      '/assets/img/portfolio/project/Unihelp/1.png',
+      '/assets/img/portfolio/project/Unihelp/2.png',
+    ],
+    link: null,
+    en: {
+      title: 'Unihelp',
+      subtitle: 'Microservices Freelancing Platform · ESPRIT',
+      desc: 'Microservices freelancing platform. Provisioned full OpenStack infrastructure with load balancing, automated with Ansible; orchestrated deployments with Kubernetes.',
+    },
+    fr: {
+      title: 'Unihelp',
+      subtitle: 'Plateforme de freelancing en microservices · ESPRIT',
+      desc: 'Plateforme de freelancing en microservices. Infrastructure OpenStack complète avec répartition de charge, automatisée avec Ansible ; déploiements orchestrés avec Kubernetes.',
+    },
+  },
+  {
+    id: 'e12',
+    year: '2023 – 2024',
+    category: 'Academic',
+    image: '/assets/img/portfolio/project/Edulance/1.png',
+    images: [
+      '/assets/img/portfolio/project/Edulance/1.png',
+      '/assets/img/portfolio/project/Edulance/2.png',
+      '/assets/img/portfolio/project/Edulance/3.png',
+      '/assets/img/portfolio/project/Edulance/4.png',
+    ],
+    link: null,
+    en: {
+      title: 'Edulance',
+      subtitle: 'Educational Content Platform · ESPRIT',
+      desc: 'Web and desktop app for educational content management with AI image moderation to auto-detect adult content.',
+    },
+    fr: {
+      title: 'Edulance',
+      subtitle: 'Plateforme de contenu éducatif · ESPRIT',
+      desc: "Application web et desktop de gestion de contenu éducatif avec modération d'images par IA pour détecter automatiquement les contenus inappropriés.",
+    },
+  },
+  {
+    id: 'e13',
+    year: '2022',
+    category: 'Academic',
+    image: '/assets/img/portfolio/project/E-Justice/1.png',
+    images: [
+      '/assets/img/portfolio/project/E-Justice/1.png',
+      '/assets/img/portfolio/project/E-Justice/2.png',
+    ],
+    link: 'https://github.com/HediLengliz/Smart_Court_2A25',
+    linkLabel: 'GitHub',
+    en: {
+      title: 'E-Justice',
+      subtitle: 'Smart Court Management System · ESPRIT',
+      desc: 'Groundbreaking court organisation and efficiency platform. Automated judicial processes, streamlined case management, intuitive UI for legal professionals.',
+    },
+    fr: {
+      title: 'E-Justice',
+      subtitle: 'Système de gestion judiciaire intelligent · ESPRIT',
+      desc: "Plateforme innovante d'organisation et d'efficacité judiciaire. Automatisation des processus judiciaires, gestion simplifiée des dossiers, interface intuitive pour les professionnels du droit.",
+    },
+  },
+  {
+    id: 'e14',
+    year: '2023',
+    category: 'Academic',
+    image: '/assets/img/portfolio/project/cultrify/1.png',
+    images: [
+      '/assets/img/portfolio/project/cultrify/1.png',
+      '/assets/img/portfolio/project/cultrify/2.png',
+    ],
+    link: 'https://github.com/AlaBenKhalifa/web',
+    linkLabel: 'GitHub',
+    en: {
+      title: 'Cultrify',
+      subtitle: 'Event Reservation Platform · ESPRIT',
+      desc: 'Dynamic web-based event reservation and organisation platform. Users discover, reserve, and coordinate events with seamless host–attendee communication.',
+    },
+    fr: {
+      title: 'Cultrify',
+      subtitle: "Plateforme de réservation d'événements · ESPRIT",
+      desc: "Plateforme web dynamique de réservation et d'organisation d'événements. Les utilisateurs découvrent, réservent et coordonnent des événements avec une communication fluide entre organisateurs et participants.",
+    },
+  },
+  {
+    id: 'e15',
+    year: '2022',
+    category: 'Academic',
+    image: '/assets/img/portfolio/project/The%20Time%20Jumper/1.png',
+    images: [
+      '/assets/img/portfolio/project/The%20Time%20Jumper/1.png',
+      '/assets/img/portfolio/project/The%20Time%20Jumper/2.png',
+    ],
+    link: 'https://github.com/ismailbokri/superbia',
+    linkLabel: 'GitHub',
+    en: {
+      title: 'The Time Jumper',
+      subtitle: '2D Video Game · ESPRIT',
+      desc: '2D video game centred around Tunisian culture and the concept of time travel, with a compelling plot twist. Designed the game mechanics and a full marketing strategy.',
+    },
+    fr: {
+      title: 'The Time Jumper',
+      subtitle: 'Jeu vidéo 2D · ESPRIT',
+      desc: "Jeu vidéo 2D centré sur la culture tunisienne et le concept de voyage dans le temps, avec un retournement de situation captivant. Conception des mécaniques de jeu et d'une stratégie marketing complète.",
+    },
+  },
+  {
+    id: 'e16',
+    year: '2023 – 2024',
+    category: 'Competition',
+    image: '/assets/img/portfolio/event/TSYP/1.jpg',
+    images: [
+      '/assets/img/portfolio/event/TSYP/1.jpg',
+      '/assets/img/portfolio/event/TSYP/2.jpg',
+    ],
+    link: null,
+    en: {
+      title: 'TSYP IEEE CS Challenge',
+      subtitle: 'Deep Learning Deepfake Detection Algorithm',
+      desc: 'Pitched a deep learning-based deepfake detection algorithm at the TSYP IEEE Computer Society Challenge, presenting the technical approach and its potential impact to a panel of judges.',
+    },
+    fr: {
+      title: 'TSYP IEEE CS Challenge',
+      subtitle: 'Algorithme de détection de deepfakes par deep learning',
+      desc: "Présentation d'un algorithme de détection de deepfakes basé sur le deep learning au TSYP IEEE Computer Society Challenge, exposant l'approche technique et son impact potentiel devant un jury.",
+    },
+  },
+  {
+    id: 'e17',
+    year: '2023',
+    category: 'Organisation',
+    image: '/assets/img/portfolio/event/IEEEXtreme/1.jpg',
+    images: [
+      '/assets/img/portfolio/event/IEEEXtreme/1.jpg',
+    ],
+    link: null,
+    en: {
+      title: 'IEEEXtreme Programming Competition',
+      subtitle: 'Organising Committee Member · ESPRIT IEEE Student Branch',
+      desc: "Served on the organising committee for IEEEXtreme, the IEEE Computer Society's global 24-hour programming competition, helping run the on-site event for ESPRIT's student branch.",
+    },
+    fr: {
+      title: 'IEEEXtreme Programming Competition',
+      subtitle: "Membre du comité d'organisation · ESPRIT IEEE Student Branch",
+      desc: "Membre du comité d'organisation d'IEEEXtreme, la compétition mondiale de programmation de 24 heures de l'IEEE Computer Society, contribuant à l'organisation de l'événement sur place pour la branche étudiante ESPRIT.",
+    },
   },
 ]
 
-// ─── SKILLS ─────────────────────────────────────────────────────────────────
+// ─── SKILLS (About page grid) ────────────────────────────────────────────────
 export const skills = [
-  { label: 'AI / NLP', items: 'Price Scoring · Sentiment Analysis · TF-IDF · Fuzzy Matching · GradientBoosting' },
-  { label: 'Backend', items: 'Python FastAPI · .NET 8 · Node.js · Spring Boot · Symfony · Flask' },
-  { label: 'Frontend', items: 'Angular 18 · React Native · React.js · FlutterFlow' },
-  { label: 'DevOps & Cloud', items: 'Azure · Docker · Kubernetes · Argo CD · Ansible · Terraform · OpenStack · AWS · Linux' },
-  { label: 'Databases', items: 'Azure SQL · MongoDB · PostgreSQL · PL/SQL' },
-  { label: 'Languages', items: 'Python · C# · Java · JavaScript · C · C++' },
-  { label: 'Tools', items: 'Git · Figma · HashiCorp Vault · OpenTelemetry · Jira' },
-  { label: 'Human Languages', items: 'Arabic (Native) · French (Fluent) · English (Fluent)' },
+  {
+    id: 's01',
+    en: { label: 'AI / NLP', items: 'Price Scoring · Sentiment Analysis · TF-IDF · Fuzzy Matching · GradientBoosting' },
+    fr: { label: 'IA / NLP', items: 'Price Scoring · Sentiment Analysis · TF-IDF · Fuzzy Matching · GradientBoosting' },
+  },
+  {
+    id: 's02',
+    en: { label: 'Backend', items: 'Python FastAPI · .NET 8 · Node.js · Spring Boot · Symfony · Flask' },
+    fr: { label: 'Backend', items: 'Python FastAPI · .NET 8 · Node.js · Spring Boot · Symfony · Flask' },
+  },
+  {
+    id: 's03',
+    en: { label: 'Frontend', items: 'Angular 18 · React Native · React.js · FlutterFlow' },
+    fr: { label: 'Frontend', items: 'Angular 18 · React Native · React.js · FlutterFlow' },
+  },
+  {
+    id: 's04',
+    en: { label: 'DevOps & Cloud', items: 'Azure · Docker · Kubernetes · Argo CD · Ansible · Terraform · OpenStack · AWS · Linux' },
+    fr: { label: 'DevOps & Cloud', items: 'Azure · Docker · Kubernetes · Argo CD · Ansible · Terraform · OpenStack · AWS · Linux' },
+  },
+  {
+    id: 's05',
+    en: { label: 'Databases', items: 'Azure SQL · MongoDB · PostgreSQL · PL/SQL' },
+    fr: { label: 'Bases de données', items: 'Azure SQL · MongoDB · PostgreSQL · PL/SQL' },
+  },
+  {
+    id: 's06',
+    en: { label: 'Languages', items: 'Python · C# · Java · JavaScript · C · C++' },
+    fr: { label: 'Langages', items: 'Python · C# · Java · JavaScript · C · C++' },
+  },
+  {
+    id: 's07',
+    en: { label: 'Tools', items: 'Git · Figma · HashiCorp Vault · OpenTelemetry · Jira' },
+    fr: { label: 'Outils', items: 'Git · Figma · HashiCorp Vault · OpenTelemetry · Jira' },
+  },
+  {
+    id: 's08',
+    en: { label: 'Human Languages', items: 'Arabic (Native) · French (Fluent) · English (Fluent)' },
+    fr: { label: 'Langues parlées', items: 'Arabe (langue maternelle) · Français (courant) · Anglais (courant)' },
+  },
 ]
 
-// ─── SKILLS CLOUD ────────────────────────────────────────────────────────────
+// ─── SKILLS CLOUD ─────────────────────────────────────────────────────────────
 export const skillsCloud = [
   // Languages
   { name: 'Python',         slug: 'python',              category: 'Languages' },
@@ -338,6 +669,8 @@ export const skillsCloud = [
 ]
 
 // ─── CERTIFICATIONS ──────────────────────────────────────────────────────────
+// Certificate titles/issuers are official document names — kept identical
+// across locales; only `category` is translated (via the certCat dictionary).
 const BASE = '/assets/certifications'
 
 export const certifications = [
@@ -529,13 +862,25 @@ export const certifications = [
 ]
 
 // ─── TICKER ITEMS ────────────────────────────────────────────────────────────
-export const tickerItems = [
-  'Top 16 of 15,000+ Teams · Hult Prize Global',
-  'WIB Hackathon — 1st Place',
-  'Harvard Africa Business Conference',
-  '4 Countries: TN / CA / USA / TR',
-  '5+ Production Deployments',
-  'AI · Full-Stack · DevOps',
-  'ESPRIT School of Engineering',
-  'Available Now',
-]
+export const tickerItems = {
+  en: [
+    'Top 16 of 15,000+ Teams · Hult Prize Global',
+    'WIB Hackathon — 1st Place',
+    'Harvard Africa Business Conference',
+    '4 Countries: TN / CA / USA / TR',
+    '5+ Production Deployments',
+    'AI · Full-Stack · DevOps',
+    'ESPRIT School of Engineering',
+    'Available Now',
+  ],
+  fr: [
+    'Top 16 sur plus de 15 000 équipes · Hult Prize Global',
+    'WIB Hackathon — 1re place',
+    'Harvard Africa Business Conference',
+    '4 pays : TN / CA / USA / TR',
+    '5+ déploiements en production',
+    'IA · Full-Stack · DevOps',
+    "ESPRIT — École d'Ingénieurs",
+    'Disponible maintenant',
+  ],
+}

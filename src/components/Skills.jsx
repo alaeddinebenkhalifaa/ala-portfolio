@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { skillsCloud } from '../data/content.js'
 import { useReveal } from '../hooks/useReveal.js'
+import { useLanguage } from '../i18n/LanguageContext.jsx'
 
 const CATS = ['All', 'Languages', 'Backend', 'Frontend', 'DevOps', 'Databases', 'Tools']
 
@@ -66,6 +67,7 @@ const DAMPING = 0.88  // velocity decay per frame (0 = instant stop, 1 = no deca
 const MIN_VEL = 0.0003
 
 export default function Skills() {
+  const { t: translate } = useLanguage()
   const [cat, setCat]     = useState('All')
   const [tooltip, setTip] = useState(null)
   const [radius, setRadius] = useState(145)
@@ -281,8 +283,8 @@ export default function Skills() {
   }
 
   return (
-    <section className="section" id="skills" aria-label="Skills">
-      <span className="s-label rv" ref={labelRef}>Skills</span>
+    <section className="section" id="skills" aria-label={translate('sections.skills')}>
+      <span className="s-label rv" ref={labelRef}>{translate('sections.skills')}</span>
 
       <div className="skill-filters">
         {CATS.map(c => (
@@ -291,7 +293,7 @@ export default function Skills() {
             className={`skill-filter${cat === c ? ' active' : ''}`}
             onClick={() => { setCat(c); setTip(null) }}
           >
-            {c}
+            {translate(`skillsCat.${c}`)}
           </button>
         ))}
       </div>
@@ -348,7 +350,7 @@ export default function Skills() {
       {/* ── Skills list sidebar ── */}
       <div className="skill-list-panel">
         <div className="skill-list-header">
-          <span className="skill-list-cat">{cat === 'All' ? 'All Skills' : cat}</span>
+          <span className="skill-list-cat">{cat === 'All' ? translate('sections.allSkills') : translate(`skillsCat.${cat}`)}</span>
           <span className="skill-list-count">
             {cat === 'All' ? skillsCloud.length : skillsCloud.filter(s => s.category === cat).length}
           </span>
@@ -374,7 +376,7 @@ export default function Skills() {
               />
               <span className="skill-list-name">{skill.name}</span>
               {cat === 'All' && (
-                <span className="skill-list-badge">{skill.category}</span>
+                <span className="skill-list-badge">{translate(`skillsCat.${skill.category}`)}</span>
               )}
             </li>
           ))}

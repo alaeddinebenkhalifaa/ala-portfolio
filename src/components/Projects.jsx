@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { work } from '../data/content.js'
 import { useReveal } from '../hooks/useReveal.js'
+import { useLanguage } from '../i18n/LanguageContext.jsx'
 
-function ProjRow({ item, isWork }) {
+function ProjRow({ item, isWork, viewOnGithub }) {
   const [open, setOpen] = useState(false)
   const ref = useReveal()
 
@@ -49,7 +50,7 @@ function ProjRow({ item, isWork }) {
                 rel="noopener noreferrer"
                 onClick={e => e.stopPropagation()}
               >
-                View on GitHub ↗
+                {viewOnGithub}
               </a>
             )}
           </div>
@@ -60,14 +61,18 @@ function ProjRow({ item, isWork }) {
 }
 
 export default function Projects() {
+  const { lang, t } = useLanguage()
   const titleRef = useReveal()
+  const localizedWork = work.map(w => ({ ...w, ...w[lang] }))
 
   return (
-    <section className="section" id="experience" aria-label="Experience & Projects">
-      <span className="s-label" ref={titleRef}>Experience</span>
+    <section className="section" id="experience" aria-label={t('sections.experience')}>
+      <span className="s-label" ref={titleRef}>{t('sections.experience')}</span>
 
       <ul className="proj-list">
-        {work.map(item => <ProjRow key={item.id} item={item} isWork />)}
+        {localizedWork.map(item => (
+          <ProjRow key={item.id} item={item} isWork viewOnGithub={t('projects.viewOnGithub')} />
+        ))}
       </ul>
     </section>
   )

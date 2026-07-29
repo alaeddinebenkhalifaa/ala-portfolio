@@ -1,14 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Music2, Maximize2, Minimize2 } from 'lucide-react'
+import { useLanguage } from '../i18n/LanguageContext.jsx'
 
-const NAV = [
-  { label: 'Projects',       href: '#projects'       },
-  { label: 'Skills',         href: '#skills'         },
-  { label: 'About',          href: '#about'          },
-  { label: 'Experience',     href: '#experience'     },
-  { label: 'Certifications', href: '#certifications' },
-  { label: 'Contact',        href: '#contact'        },
-]
+const NAV_HREFS = ['projects', 'skills', 'about', 'experience', 'achievements', 'certifications', 'contact']
 
 function SunIcon() {
   return (
@@ -35,8 +29,11 @@ function MoonIcon() {
 }
 
 export default function Header({ theme, onToggleTheme, playerOpen, onTogglePlayer, musicPlaying }) {
+  const { lang, toggleLanguage, t } = useLanguage()
   const [glass, setGlass]       = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+
+  const NAV = NAV_HREFS.map(key => ({ key, href: `#${key}`, label: t(`nav.${key}`) }))
 
   useEffect(() => {
     const onScroll = () => setGlass(window.scrollY > 60)
@@ -88,7 +85,7 @@ export default function Header({ theme, onToggleTheme, playerOpen, onTogglePlaye
           <button
             className={`hdr-icon-btn hdr-music-btn${playerOpen ? ' active' : ''}${musicPlaying ? ' playing' : ''}`}
             onClick={onTogglePlayer}
-            aria-label="Toggle music player"
+            aria-label={t('header.toggleMusic')}
           >
             {musicPlaying ? (
               <span className="hdr-wave" aria-hidden="true">
@@ -102,15 +99,23 @@ export default function Header({ theme, onToggleTheme, playerOpen, onTogglePlaye
           <button
             className="hdr-icon-btn"
             onClick={toggleFs}
-            aria-label={isFs ? 'Exit fullscreen' : 'Enter fullscreen'}
+            aria-label={isFs ? t('header.exitFullscreen') : t('header.enterFullscreen')}
           >
             {isFs ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
           </button>
 
           <button
+            className="theme-btn lang-btn"
+            onClick={toggleLanguage}
+            aria-label={t('header.toggleLanguage')}
+          >
+            {lang.toUpperCase()}
+          </button>
+
+          <button
             className="theme-btn"
             onClick={onToggleTheme}
-            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            aria-label={theme === 'dark' ? t('header.switchToLight') : t('header.switchToDark')}
           >
             {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
           </button>
@@ -121,7 +126,7 @@ export default function Header({ theme, onToggleTheme, playerOpen, onTogglePlaye
           className={`mob-btn${menuOpen ? ' open' : ''}`}
           onClick={toggle}
           aria-expanded={menuOpen}
-          aria-label="Navigation menu"
+          aria-label={t('header.navMenu')}
         >
           <span /><span /><span />
         </button>
@@ -135,7 +140,7 @@ export default function Header({ theme, onToggleTheme, playerOpen, onTogglePlaye
         <ul className="mob-nav">
           {NAV.map((item, i) => (
             <li
-              key={item.label}
+              key={item.href}
               className={`mob-item${menuOpen ? ' visible' : ''}`}
               style={{ transitionDelay: menuOpen ? `${0.04 + i * 0.08}s` : '0s' }}
             >
@@ -144,20 +149,30 @@ export default function Header({ theme, onToggleTheme, playerOpen, onTogglePlaye
           ))}
         </ul>
 
-        <button
-          className={`mob-theme-btn${menuOpen ? ' visible' : ''}`}
-          style={{ transitionDelay: menuOpen ? '0.46s' : '0s' }}
-          onClick={() => { onToggleTheme(); close() }}
-        >
-          {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
-        </button>
+        <div className="mob-menu-actions">
+          <button
+            className={`mob-theme-btn${menuOpen ? ' visible' : ''}`}
+            style={{ transitionDelay: menuOpen ? '0.46s' : '0s' }}
+            onClick={() => { onToggleTheme(); close() }}
+          >
+            {theme === 'dark' ? t('header.lightMode') : t('header.darkMode')}
+          </button>
+
+          <button
+            className={`mob-theme-btn${menuOpen ? ' visible' : ''}`}
+            style={{ transitionDelay: menuOpen ? '0.5s' : '0s' }}
+            onClick={() => { toggleLanguage(); close() }}
+          >
+            {lang === 'en' ? 'Français' : 'English'}
+          </button>
+        </div>
       </div>
 
       {/* ── Floating music button (mobile only) ── */}
       <button
         className={`mob-music-fab${playerOpen ? ' active' : ''}${musicPlaying ? ' playing' : ''}`}
         onClick={onTogglePlayer}
-        aria-label="Toggle music player"
+        aria-label={t('header.toggleMusic')}
       >
         {musicPlaying ? (
           <span className="hdr-wave" aria-hidden="true">

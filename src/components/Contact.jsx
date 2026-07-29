@@ -1,4 +1,5 @@
 import { useReveal } from '../hooks/useReveal.js'
+import { useLanguage } from '../i18n/LanguageContext.jsx'
 
 const LINKS = [
   { label: 'GitHub',   href: 'https://github.com/AlaBenKhalifa' },
@@ -6,15 +7,19 @@ const LINKS = [
 ]
 
 export default function Contact() {
+  const { t } = useLanguage()
   const hRef = useReveal()
   const bRef = useReveal()
+  const heading = t('sections.contactHeading')
 
   return (
-    <section className="contact-section" id="contact" aria-label="Contact">
-      <span className="s-label">Let's connect</span>
+    <section className="contact-section" id="contact" aria-label={t('nav.contact')}>
+      <span className="s-label">{t('sections.letsConnect')}</span>
 
       <h2 className="contact-h rv" ref={hRef}>
-        Let's build<br />something<br />remarkable.
+        {heading.map((line, i) => (
+          <span key={i}>{line}{i < heading.length - 1 && <br />}</span>
+        ))}
       </h2>
 
       <div className="rv" ref={bRef} data-d="1">

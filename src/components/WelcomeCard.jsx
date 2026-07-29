@@ -1,14 +1,25 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
+import { useLanguage } from '../i18n/LanguageContext.jsx'
+import { playPop, setDrowned } from '../audio/audioEngine.js'
 
 
-export default function WelcomeCard({ onDismiss }) {
+export default function WelcomeCard({ revealed, onDismiss }) {
+  const { t } = useLanguage()
   const [visible, setVisible] = useState(true)
 
   useEffect(() => {
     document.body.style.overflow = 'hidden'
     return () => { document.body.style.overflow = '' }
   }, [])
+
+  // pop + drown once the card is actually revealed (i.e. the loader has cleared)
+  useEffect(() => {
+    if (!revealed || !visible) return
+    playPop()
+    setDrowned(true)
+    return () => setDrowned(false)
+  }, [revealed, visible])
 
   const close = () => {
     setVisible(false)
@@ -56,7 +67,7 @@ export default function WelcomeCard({ onDismiss }) {
               animate="show"
             >
               <motion.p className="wc-hello" variants={item}>
-                Hello, world.
+                {t('welcome.hello')}
               </motion.p>
 
               <motion.h1 className="wc-name" variants={item}>
@@ -64,13 +75,13 @@ export default function WelcomeCard({ onDismiss }) {
               </motion.h1>
 
               <motion.p className="wc-role" variants={item}>
-                IT Engineer · Builder · Problem Solver
+                {t('welcome.role')}
               </motion.p>
 
               <motion.div className="wc-divider" variants={item} />
 
               <motion.p className="wc-tagline" variants={item}>
-                Grab a coffee — this portfolio<br />was made to impress you.
+                {t('welcome.tagline')}
               </motion.p>
 
               <motion.button
@@ -80,7 +91,7 @@ export default function WelcomeCard({ onDismiss }) {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
               >
-                Let's go
+                {t('welcome.cta')}
                 <span className="wc-arrow" aria-hidden="true">→</span>
               </motion.button>
             </motion.div>

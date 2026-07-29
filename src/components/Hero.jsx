@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
+import { useLanguage } from '../i18n/LanguageContext.jsx'
 
 const WORDS = ['ALA', 'EDDINE', 'BEN', 'KHALIFA']
-const TAGS  = ['AI Engineer', 'Full-Stack', 'DevOps', 'ESPRIT', 'Available']
 
 export default function Hero() {
+  const { t } = useLanguage()
   const [up, setUp]   = useState(false)
   const portraitRef   = useRef(null)
   const rafId         = useRef(null)
@@ -33,7 +34,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="hero" id="hero" aria-label="Introduction">
+    <section className="hero" id="hero" aria-label={t('common.introduction')}>
       {/* portrait */}
       <div className="hero-right" aria-hidden="true">
         <div className="hero-portrait" ref={portraitRef} />
@@ -55,18 +56,18 @@ export default function Hero() {
         </h1>
 
         <p className={`hero-role${up ? ' up' : ''}`}>
-          IT Engineer &nbsp;·&nbsp; AI · Full-Stack · DevOps
+          {t('hero.role')}
         </p>
 
         <div className={`hero-tags${up ? ' up' : ''}`}>
-          {TAGS.map(t => (
-            <span className="gtag" key={t}>{t}</span>
+          {t('hero.tags').map(tag => (
+            <span className="gtag" key={tag}>{tag}</span>
           ))}
         </div>
 
         <div className={`scroll-hint${up ? ' up' : ''}`}>
           <span className="s-arr" aria-hidden="true" />
-          Scroll to explore
+          {t('hero.scrollHint')}
         </div>
       </div>
     </section>

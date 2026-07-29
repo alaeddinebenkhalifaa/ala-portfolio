@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
 import { certifications } from '../data/content.js'
 import { useReveal } from '../hooks/useReveal.js'
+import { useLanguage } from '../i18n/LanguageContext.jsx'
 import CertificationModal from './CertificationModal.jsx'
 
 const CATS = ['All', 'IEEE', 'Competition', 'Cloud', 'Programming', 'Technology', 'Language', 'Training', 'Academic', 'Leadership']
@@ -19,6 +20,7 @@ const CATEGORY_COLORS = {
 }
 
 function CertCard({ cert, index, onOpen }) {
+  const { t } = useLanguage()
   const ref = useReveal()
   const color = CATEGORY_COLORS[cert.category] || '#b8ff3c'
 
@@ -36,7 +38,7 @@ function CertCard({ cert, index, onOpen }) {
 
       {/* Category pill */}
       <div className="cert-cat-pill" style={{ color, borderColor: color, background: `${color}18` }}>
-        {cert.category}
+        {t(`certCat.${cert.category}`)}
       </div>
 
       {/* Doc icon */}
@@ -76,6 +78,7 @@ function CertCard({ cert, index, onOpen }) {
 }
 
 export default function Certifications() {
+  const { t } = useLanguage()
   const labelRef = useReveal()
   const [active, setActive] = useState(null)
   const [cat, setCat] = useState('All')
@@ -83,8 +86,8 @@ export default function Certifications() {
   const filtered = cat === 'All' ? certifications : certifications.filter(c => c.category === cat)
 
   return (
-    <section className="section" id="certifications" aria-label="Certifications">
-      <span className="s-label rv" ref={labelRef}>Certifications</span>
+    <section className="section" id="certifications" aria-label={t('sections.certifications')}>
+      <span className="s-label rv" ref={labelRef}>{t('sections.certifications')}</span>
 
       {/* Filter bar */}
       <div className="cert-filters">
@@ -99,7 +102,7 @@ export default function Certifications() {
               background: `${CATEGORY_COLORS[c]}18`,
             } : {}}
           >
-            {c}
+            {t(`certCat.${c}`)}
           </button>
         ))}
       </div>
