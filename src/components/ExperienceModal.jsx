@@ -129,15 +129,20 @@ export default function ExperienceModal({ ev, categoryLabel, onClose }) {
               <h2 className="em-title">{ev.title}</h2>
               <p className="em-subtitle">{ev.subtitle}</p>
               <p className="em-desc">{ev.desc}</p>
-              {ev.link && (
-                <a
-                  className="em-link"
-                  href={ev.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {ev.linkLabel} ↗
-                </a>
+              {ev.links?.length > 0 && (
+                <div className="em-links">
+                  {ev.links.map(l => (
+                    <a
+                      key={l.url}
+                      className="em-link"
+                      href={l.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {l.label} ↗
+                    </a>
+                  ))}
+                </div>
               )}
             </div>
           </motion.div>

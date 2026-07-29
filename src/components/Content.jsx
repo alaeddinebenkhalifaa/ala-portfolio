@@ -1,5 +1,5 @@
 import { motion } from 'motion/react'
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { events } from '../data/content.js'
 import { useReveal } from '../hooks/useReveal.js'
 import { useLanguage } from '../i18n/LanguageContext.jsx'
@@ -15,6 +15,9 @@ import {
   useCutoutContentStaggerVariants,
 } from './ui/CutoutCard.jsx'
 import ExperienceModal from './ExperienceModal.jsx'
+
+const CATS = ['All', 'Competition', 'Conference', 'Hackathon', 'Organisation', 'Bootcamp', 'Leadership', 'Media', 'Academic']
+const SORTS = ['featured', 'az', 'newest']
 
 function ExperienceCard({ ev, index, onOpen, categoryLabel }) {
   const ref = useReveal()
@@ -72,13 +75,58 @@ export default function Content() {
   const { lang, t } = useLanguage()
   const labelRef = useReveal()
   const [active, setActive] = useState(null)
-  const localizedEvents = events.map(ev => ({ ...ev, ...ev[lang] }))
+  const [cat, setCat] = useState('All')
+  const [sort, setSort] = useState('featured')
+
+  const localizedEvents = useMemo(() => events.map(ev => ({ ...ev, ...ev[lang] })), [lang])
+
+  const availableCats = useMemo(
+    () => CATS.filter(c => c === 'All' || localizedEvents.some(ev => ev.category === c)),
+    [localizedEvents]
+  )
+
+  const visibleEvents = useMemo(() => {
+    const filtered = cat === 'All' ? localizedEvents : localizedEvents.filter(ev => ev.category === cat)
+    const sorted = [...filtered].sort((a, b) => {
+      if (sort === 'az') return a.title.localeCompare(b.title)
+      if (sort === 'newest') return b.sortDate - a.sortDate
+      return a.rank - b.rank
+    })
+    return sorted
+  }, [localizedEvents, cat, sort])
 
   return (
     <section className="section" id="achievements" style={{ paddingTop: 0 }} aria-label={t('sections.achievements')}>
       <span className="s-label rv" ref={labelRef}>{t('sections.achievements')}</span>
+
+      <div className="ach-controls">
+        <div className="ach-filters">
+          {availableCats.map(c => (
+            <button
+              key={c}
+              className={`ach-filter-btn${cat === c ? ' active' : ''}`}
+              onClick={() => setCat(c)}
+            >
+              {c === 'All' ? t('skillsCat.All') : t(`eventCat.${c}`)}
+            </button>
+          ))}
+        </div>
+
+        <div className="ach-sort">
+          {SORTS.map(s => (
+            <button
+              key={s}
+              className={`ach-sort-btn${sort === s ? ' active' : ''}`}
+              onClick={() => setSort(s)}
+            >
+              {t(`achievementsSort.${s}`)}
+            </button>
+          ))}
+        </div>
+      </div>
+
       <div className="cc2-grid">
-        {localizedEvents.map((ev, i) => (
+        {visibleEvents.map((ev, i) => (
           <ExperienceCard
             key={ev.id}
             ev={ev}

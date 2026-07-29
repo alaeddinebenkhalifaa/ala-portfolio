@@ -205,6 +205,8 @@ export const events = [
   {
     id: 'e01',
     year: '2022 – 2023',
+    sortDate: 202209,
+    rank: 1,
     category: 'Competition',
     image: '/assets/img/portfolio/event/hult%20prize%20global%20accelerator/1.jpg',
     images: [
@@ -214,8 +216,9 @@ export const events = [
       '/assets/img/portfolio/event/hult%20prize%20global%20accelerator/4.jpg',
       '/assets/img/portfolio/event/hult%20prize%20global%20accelerator/5.PNG',
     ],
-    link: 'https://www.hultprize.org/winner-stories/2022/yopex/',
-    linkLabel: 'Hult Prize',
+    links: [
+      { url: 'https://www.hultprize.org/winner-stories/2022/yopex/', label: 'Hult Prize' },
+    ],
     en: {
       title: 'Hult Prize Global Accelerator',
       subtitle: 'Top 16 of 15,000+ teams worldwide · Boston, USA',
@@ -230,6 +233,8 @@ export const events = [
   {
     id: 'e02',
     year: 'Apr 2023',
+    sortDate: 202304,
+    rank: 2,
     category: 'Conference',
     image: '/assets/img/portfolio/event/harvard/1.jpg',
     images: [
@@ -250,6 +255,8 @@ export const events = [
   {
     id: 'e03',
     year: 'Mar 2024',
+    sortDate: 202403,
+    rank: 3,
     category: 'Hackathon',
     image: '/assets/img/portfolio/event/WIB/1.jpg',
     images: [
@@ -269,6 +276,8 @@ export const events = [
   {
     id: 'e04',
     year: 'Sep 2022 – Mar 2023',
+    sortDate: 202209,
+    rank: 7,
     category: 'Organisation',
     image: '/assets/img/portfolio/event/HP%20OC/1.jpg',
     images: [
@@ -289,6 +298,8 @@ export const events = [
   {
     id: 'e05',
     year: 'Sep 2022',
+    sortDate: 202209,
+    rank: 9,
     category: 'Organisation',
     image: '/assets/img/portfolio/event/OC%20APP0%20Esprit/1.png',
     images: [
@@ -296,8 +307,9 @@ export const events = [
       '/assets/img/portfolio/event/OC%20APP0%20Esprit/2.png',
       '/assets/img/portfolio/event/OC%20APP0%20Esprit/3.png',
     ],
-    link: 'https://www.facebook.com/esprit.tn/posts/pfbid02yBghvR4BZ3SsSpwaB5NeN2T9Eun8ob97CCkrmrn6PjJ3h4fMjqXDKPf7oS692g3Vl',
-    linkLabel: 'Facebook',
+    links: [
+      { url: 'https://www.facebook.com/esprit.tn/posts/pfbid02yBghvR4BZ3SsSpwaB5NeN2T9Eun8ob97CCkrmrn6PjJ3h4fMjqXDKPf7oS692g3Vl', label: 'Facebook' },
+    ],
     en: {
       title: 'APP0 Esprit — Organising Committee',
       subtitle: 'Freshmen Welcome Event · ESPRIT University',
@@ -312,6 +324,8 @@ export const events = [
   {
     id: 'e06',
     year: 'Mar 2021',
+    sortDate: 202103,
+    rank: 11,
     category: 'Bootcamp',
     image: '/assets/img/portfolio/event/NMTC/1.png',
     images: [
@@ -319,8 +333,9 @@ export const events = [
       '/assets/img/portfolio/event/NMTC/2.png',
       '/assets/img/portfolio/event/NMTC/3.png',
     ],
-    link: 'https://www.facebook.com/NMTC.TUNISIA/posts/pfbid0rjeE9yGT11cGrX6bJXokq4stesR5S8Gpb6Gfagao23JzMn8nxK3niJAjDzAmcm8gl',
-    linkLabel: 'Facebook',
+    links: [
+      { url: 'https://www.facebook.com/NMTC.TUNISIA/posts/pfbid0rjeE9yGT11cGrX6bJXokq4stesR5S8Gpb6Gfagao23JzMn8nxK3niJAjDzAmcm8gl', label: 'Facebook' },
+    ],
     en: {
       title: 'NMTC',
       subtitle: 'National Microsoft Technology Bootcamp',
@@ -335,14 +350,17 @@ export const events = [
   {
     id: 'e07',
     year: 'Nov 2021',
+    sortDate: 202111,
+    rank: 10,
     category: 'Leadership',
     image: '/assets/img/portfolio/event/Theatre%20Workshop/1.png',
     images: [
       '/assets/img/portfolio/event/Theatre%20Workshop/1.png',
       '/assets/img/portfolio/event/Theatre%20Workshop/2.png',
     ],
-    link: 'https://www.facebook.com/Na9chaTN/posts/pfbid0KpXNVn7T8vwvcTrANgGKgCHv1NxD6G4QXgDC3LauGKLEuX9FNvTCwR8CbUiidW8cl',
-    linkLabel: 'Facebook',
+    links: [
+      { url: 'https://www.facebook.com/Na9chaTN/posts/pfbid0KpXNVn7T8vwvcTrANgGKgCHv1NxD6G4QXgDC3LauGKLEuX9FNvTCwR8CbUiidW8cl', label: 'Facebook' },
+    ],
     en: {
       title: 'Theatre Workshop',
       subtitle: 'Co-Founder · NaQcha Theatre Club',
@@ -357,14 +375,17 @@ export const events = [
   {
     id: 'e08',
     year: 'Jun 2023',
+    sortDate: 202306,
+    rank: 12,
     category: 'Media',
     image: '/assets/img/portfolio/event/radio-shows/1.png',
     images: [
       '/assets/img/portfolio/event/radio-shows/1.png',
       '/assets/img/portfolio/event/radio-shows/2.png',
     ],
-    link: 'https://www.facebook.com/permalink.php?story_fbid=pfbid02dcEFCyzgpK9RC2TodvM3CMhDz61rsLhF4HWZRM19foFzu2ywnYgJ5Pa6sNPAuyLxl&id=100009407850464',
-    linkLabel: 'Facebook',
+    links: [
+      { url: 'https://www.facebook.com/permalink.php?story_fbid=pfbid02dcEFCyzgpK9RC2TodvM3CMhDz61rsLhF4HWZRM19foFzu2ywnYgJ5Pa6sNPAuyLxl&id=100009407850464', label: 'Facebook' },
+    ],
     en: {
       title: 'Radio Shows',
       subtitle: 'Guest Speaker · 2 National Appearances',
@@ -379,6 +400,8 @@ export const events = [
   {
     id: 'e09',
     year: '2021 – 2024',
+    sortDate: 202101,
+    rank: 5,
     category: 'Leadership',
     image: '/assets/img/portfolio/club/ieee/2.png',
     images: [
@@ -399,6 +422,8 @@ export const events = [
   {
     id: 'e10',
     year: 'Oct 2022',
+    sortDate: 202210,
+    rank: 4,
     category: 'Hackathon',
     image: '/assets/img/portfolio/event/upside%20education/1.jpg',
     images: [
@@ -406,8 +431,9 @@ export const events = [
       '/assets/img/portfolio/event/upside%20education/2.jpg',
       '/assets/img/portfolio/event/upside%20education/3.jpg',
     ],
-    link: 'https://github.com/Haythem-Jaidane/TeamUp',
-    linkLabel: 'GitHub',
+    links: [
+      { url: 'https://github.com/Haythem-Jaidane/TeamUp', label: 'GitHub' },
+    ],
     en: {
       title: 'Upside Education Hackathon',
       subtitle: '"TeamUp" — ML-powered team allocation app',
@@ -422,13 +448,17 @@ export const events = [
   {
     id: 'e11',
     year: '2024 – 2025',
+    sortDate: 202401,
+    rank: 13,
     category: 'Academic',
     image: '/assets/img/portfolio/project/Unihelp/1.png',
     images: [
       '/assets/img/portfolio/project/Unihelp/1.png',
       '/assets/img/portfolio/project/Unihelp/2.png',
     ],
-    link: null,
+    links: [
+      { url: 'https://github.com/AlaBenKhalifa/Unihelp-Integration/tree/main', label: 'GitHub' },
+    ],
     en: {
       title: 'Unihelp',
       subtitle: 'Microservices Freelancing Platform · ESPRIT',
@@ -443,6 +473,8 @@ export const events = [
   {
     id: 'e12',
     year: '2023 – 2024',
+    sortDate: 202301,
+    rank: 14,
     category: 'Academic',
     image: '/assets/img/portfolio/project/Edulance/1.png',
     images: [
@@ -451,7 +483,10 @@ export const events = [
       '/assets/img/portfolio/project/Edulance/3.png',
       '/assets/img/portfolio/project/Edulance/4.png',
     ],
-    link: null,
+    links: [
+      { url: 'https://github.com/AlaBenKhalifa/EdulanceJAVA', label: 'GitHub (JavaFX)' },
+      { url: 'https://github.com/KhalifaMounir/edulance', label: 'GitHub (Web)' },
+    ],
     en: {
       title: 'Edulance',
       subtitle: 'Educational Content Platform · ESPRIT',
@@ -466,14 +501,17 @@ export const events = [
   {
     id: 'e13',
     year: '2022',
+    sortDate: 202201,
+    rank: 16,
     category: 'Academic',
     image: '/assets/img/portfolio/project/E-Justice/1.png',
     images: [
       '/assets/img/portfolio/project/E-Justice/1.png',
       '/assets/img/portfolio/project/E-Justice/2.png',
     ],
-    link: 'https://github.com/HediLengliz/Smart_Court_2A25',
-    linkLabel: 'GitHub',
+    links: [
+      { url: 'https://github.com/HediLengliz/Smart_Court_2A25', label: 'GitHub' },
+    ],
     en: {
       title: 'E-Justice',
       subtitle: 'Smart Court Management System · ESPRIT',
@@ -488,14 +526,17 @@ export const events = [
   {
     id: 'e14',
     year: '2023',
+    sortDate: 202301,
+    rank: 15,
     category: 'Academic',
     image: '/assets/img/portfolio/project/cultrify/1.png',
     images: [
       '/assets/img/portfolio/project/cultrify/1.png',
       '/assets/img/portfolio/project/cultrify/2.png',
     ],
-    link: 'https://github.com/AlaBenKhalifa/web',
-    linkLabel: 'GitHub',
+    links: [
+      { url: 'https://github.com/AlaBenKhalifa/web', label: 'GitHub' },
+    ],
     en: {
       title: 'Cultrify',
       subtitle: 'Event Reservation Platform · ESPRIT',
@@ -510,14 +551,17 @@ export const events = [
   {
     id: 'e15',
     year: '2022',
+    sortDate: 202201,
+    rank: 17,
     category: 'Academic',
     image: '/assets/img/portfolio/project/The%20Time%20Jumper/1.png',
     images: [
       '/assets/img/portfolio/project/The%20Time%20Jumper/1.png',
       '/assets/img/portfolio/project/The%20Time%20Jumper/2.png',
     ],
-    link: 'https://github.com/ismailbokri/superbia',
-    linkLabel: 'GitHub',
+    links: [
+      { url: 'https://github.com/ismailbokri/superbia', label: 'GitHub' },
+    ],
     en: {
       title: 'The Time Jumper',
       subtitle: '2D Video Game · ESPRIT',
@@ -532,13 +576,15 @@ export const events = [
   {
     id: 'e16',
     year: '2023 – 2024',
+    sortDate: 202301,
+    rank: 6,
     category: 'Competition',
     image: '/assets/img/portfolio/event/TSYP/1.jpg',
     images: [
       '/assets/img/portfolio/event/TSYP/1.jpg',
       '/assets/img/portfolio/event/TSYP/2.jpg',
     ],
-    link: null,
+    links: [],
     en: {
       title: 'TSYP IEEE CS Challenge',
       subtitle: 'Deep Learning Deepfake Detection Algorithm',
@@ -553,12 +599,14 @@ export const events = [
   {
     id: 'e17',
     year: '2023',
+    sortDate: 202301,
+    rank: 8,
     category: 'Organisation',
     image: '/assets/img/portfolio/event/IEEEXtreme/1.jpg',
     images: [
       '/assets/img/portfolio/event/IEEEXtreme/1.jpg',
     ],
-    link: null,
+    links: [],
     en: {
       title: 'IEEEXtreme Programming Competition',
       subtitle: 'Organising Committee Member · ESPRIT IEEE Student Branch',

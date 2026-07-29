@@ -62,6 +62,11 @@ export const ui = {
       contactHeading: ["Let's build", 'something', 'remarkable.'],
       aboutHeading: ['Engineer.', 'Builder.', 'Human.'],
     },
+    achievementsSort: {
+      featured: 'Featured',
+      az: 'A–Z',
+      newest: 'Newest',
+    },
     skillsCat: {
       All: 'All',
       Languages: 'Languages',
@@ -189,6 +194,11 @@ export const ui = {
       letsConnect: 'Restons en contact',
       contactHeading: ['Construisons', 'quelque chose', 'de remarquable.'],
       aboutHeading: ['Ingénieur.', 'Bâtisseur.', 'Humain.'],
+    },
+    achievementsSort: {
+      featured: 'Recommandé',
+      az: 'A–Z',
+      newest: 'Récent',
     },
     skillsCat: {
       All: 'Tout',
